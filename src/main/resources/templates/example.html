@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable and Movable Text Block with Context Menu</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="a4-page">
+    <h1>Your A4-sized Content</h1>
+
+    <!-- Movable and Resizable Text Block -->
+    <div class="text-block" id="movableResizable">
+        <div class="text-handle"></div>
+        <label for="writableText">Writable Text:</label>
+        <textarea id="writableText" placeholder="Type your text here..."></textarea>
+    </div>
+
+    <!-- Other content goes here -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

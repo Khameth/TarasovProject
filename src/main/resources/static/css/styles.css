@@ -1,0 +1,43 @@
+.a4-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto; /* Center the page horizontally */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for visual appeal */
+}
+
+.text-block {
+    position: absolute;
+    cursor: move;
+}
+
+.text-handle {
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.context-menu-option {
+    cursor: pointer;
+}
