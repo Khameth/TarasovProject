@@ -3,5 +3,5 @@
     height: 297mm;
     margin: 0 auto; /* Center the page horizontally */
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for visual appeal */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for visual appeal */
 }
