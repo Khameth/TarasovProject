@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--head-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <!--    JQUERY   -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+    <!--    TEXT PROCESSING    -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"></script>
+    <link rel="stylesheet" href="/css/quill.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.css" integrity="sha256-Qy/E+9TDDKI7fQ+y2hHMCBV96QiZs9mXWMOrD+/14IU=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.min.js" integrity="sha256-1XldAnavTLoExr6gc0l1JD8cIzqRYhbi1eksEWsYdpY=" crossorigin="anonymous"></script>
+
+    <script src="/scripts/math-processor-quill/mathquill4quill.js"></script>
+    <link rel="stylesheet" href="/scripts/math-processor-quill/mathquill4quill.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/quill-better-table@1.2.8/dist/quill-better-table.min.js"></script>
+    <link rel="stylesheet" href="/css/quill-better-table.css">
+
+    <!--    ARROW LINES-->
+    <script src="/scripts/leader-line-master/leader-line.min.js"></script>
+    <script src="/scripts/anim-event-master/anim-event.min.js"></script>
+
+    <!--    DRAWINGS PROCESSING   -->
+    <script src="/scripts/drawing-tablet-main/lib/DrawingTablet.js"></script>
+    <!--    SCREENSHOT  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <!--    MAIN   -->
+    <script type="module" src="/js/script.js"></script>
+</head>
+<body>
+<div class="container-fluid sticky-top border bg-light-subtle mb-3 no-print" th:fragment="header">
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="ui-widget-content nav-item ms-1 border-0">
+                <button class="btn btn-outline-primary border-0" id="arrowBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="ui-widget-content nav-item ms-1 border-0">
+                <div class="btn btn-outline-primary border-0" id="textBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-fonts"
+                         viewBox="0 0 16 16">
+                        <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z"/>
+                    </svg>
+                </div>
+            </li>
+            <li class="ui-widget-content nav-item ms-1 border-0">
+                <div class="btn btn-outline-primary border-0" id="imageBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-card-image" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                        <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                </div>
+            </li>
+            <li class="ui-widget-content nav-item ms-1 border-0">
+                <div class="btn btn-outline-primary border-0" id="tableBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+                    </svg>
+                </div>
+            </li>
+            <li class="ui-widget-content nav-item ms-1 border-0">
+                <button class="btn btn-outline-primary border-0" id="saveBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                        <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </header>
+</div>
+
+    <div class="justify-content-center" id="canvas-container">
+
+    </div>
+
+<div class="sticky-bottom no-print">
+<div class="dt-control-container">
+    <div class="dt-tools-container mx-1">
+        <img src="/scripts/drawing-tablet-main/assets/pencil.svg" title="Brush" id="pencil" alt="" width="48" height="48"/>
+    </div>
+    <div class="dt-tools-container mx-1">
+        <img
+                src="/scripts/drawing-tablet-main/assets/highlighter.svg"
+                title="Highlighter"
+                id="highlighter"
+                alt=""
+                width="48" height="48"
+        />
+    </div>
+    <div class="dt-tools-container mx-1">
+        <img src="/scripts/drawing-tablet-main/assets/eraser.svg" title="Eraser" id="eraser" alt="" width="48" height="48"/>
+    </div>
+    <div class="dt-tools-container mx-1" >
+        <img src="/scripts/drawing-tablet-main/assets/clear-all.svg" title="clear" id="clear" alt="" width="48" height="48"/>
+    </div>
+    <input type="number" min="1" max="100" id="size" value="5" />
+
+    <div class="dt-dc-container">
+        <div class="dt-default-colors" data-color="#000000">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#f24822">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#ffa629">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#ffcd29">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#14ae5c">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#0d99ff">
+            <div></div>
+        </div>
+        <div class="dt-default-colors" data-color="#9747ff">
+            <div></div>
+        </div>
+    </div>
+
+    <div class="dt-cp-container">
+        <label for="dtPicker" class="dt-color-picker">
+            <input
+                    id="dtPicker"
+                    type="color"
+                    style="visibility: hidden; opacity: 0; width: 0; height: 0"
+            />
+        </label>
+    </div>
+
+    <div class="dt-undo-redo-container">
+        <div class="">
+            <img
+                    src="/scripts/drawing-tablet-main/assets/undo.svg"
+                    title="Undo (Ctrl + Z)"
+                    id="undo"
+                    alt=""
+            />
+        </div>
+        <div class="">
+            <img
+                    src="/scripts/drawing-tablet-main/assets/redo.svg"
+                    title="Redo (Ctrl + Y)"
+                    id="redo"
+                    alt=""
+            />
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

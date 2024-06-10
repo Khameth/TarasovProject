@@ -1,47 +1,30 @@
-.a4-page {
-    width: 210mm;
-    height: 297mm;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+* {
+  margin: 0;
 }
-.textContainer {}
-.imageContainer {
-    padding: 0px 0px 0px 0px !important;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#canvas-container {
+  width: 100%;
+  height: 100vh;
 }
 
-.ui-resizable-se {
-    bottom: 17px;
-}
-.ui-resizable {
-    position: absolute;
-}
-textarea {
-            resize: none;
-            }
-.absolute {
-            position: absolute;
-            }
-.background {
-            z-index: 3;
-            }
-.front {
-            z-index: 1;
-            }
 .dt-control-container {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 1px solid #404040;
+  border-bottom: 1px solid transparent;
+  background: #222222;
   display: flex;
   align-items: center;
   padding: 12px;
-  background-color: white;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 .dt-dc-container {
   border-left: 1px solid #404040;
@@ -129,12 +112,11 @@ textarea {
   height: 30px;
   margin: 0 0.8rem;
   border: none;
-  border-radius: 5px;
-  background: #fff;
-  color: #000;
+  border-radius: 4px;
+  background: #3d3d3d;
+  color: #fff;
   font-size: 18px;
   font-weight: 500;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -moz-appearance: textfield;
 }
 #size::-webkit-outer-spin-button,
@@ -166,36 +148,6 @@ textarea {
   margin-left: 0.8rem;
 }
 
-.btn-outline-primary {
-    --bs-btn-color: #000;
-    --bs-btn-border-color: #000;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #000;
-    --bs-btn-hover-border-color: #000;
-    --bs-btn-focus-shadow-rgb: 13, 110, 253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #000;
-    --bs-btn-active-border-color: #000;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #000;
-    --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: #000;
-    --bs-gradient: none;
-}
-
-.qlbt-operation-menu {
-        height: 100px;
-        overflow-y: scroll;
-}
-::-webkit-scrollbar {
-    display: none;
-}
-
-@media print {
-  .ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
-    display: none !important;
-  }
-  .no-print {
-    display: none !important;
-  }
+.ql-omega:after {
+  content: "zh";
 }
