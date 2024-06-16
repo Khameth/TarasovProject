@@ -9,8 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.tarasov</groupId>
-	<artifactId>project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>TarasovProject</artifactId>
 	<name>TarasovProject</name>
 	<description>---</description>
 	<properties>
